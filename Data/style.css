@@ -449,6 +449,7 @@ input[type="radio"]:checked+label {
             margin: 0 auto;
             position: relative;
             overflow: hidden;
+            border: 2px solid #d2691e;
         }
 
         /* Header */
@@ -529,15 +530,13 @@ input[type="radio"]:checked+label {
             -webkit-backdrop-filter: blur(1px);
             border-radius: 12px;
             transition: all 0.3s ease;
-            border: 2px solid transparent;
+            border: 2px solid #d2691e;
             box-shadow: 0 4px 12px rgba(139, 69, 19, 0.08);
         }
 
         .supporter-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(139, 69, 19, 0.15);
-            border-color: #d2691e;
-            background: #fffaf0;
         }
 
         /* Vị trí */
