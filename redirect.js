@@ -34,7 +34,7 @@
 
   function showRedirectMessage() {
     redirectText.innerHTML = `
-      Đang chuyển hướng bạn đến link, hãy nhấn
+      Đang chuyển hướng đến link, nhấn
       <a href="${decodeURIComponent(redirectUrl)}" rel="noreferrer">
         vào đây
       </a>
