@@ -65,6 +65,14 @@ class DonetSupporters {
                 avatar: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiku1LrijtMFlfayL4glMqiNJ81GIZYL4Qn56lmA-d1WjiWv2Pp7ft7LMG82xALW59zezdL5wfJa11CatcRXWFcIkB64Pk7ZZyXnnHsQqQzLCRRRpeb8xH7vLgRkzLWh1J0p5NnkSRLTiKQvGu1u6_A8Onw5kXKQbT5VtUYl9LjSlAbLfKWEbYIbXW_/s1075/1718503815927.jpg",
                 position: 8,
                 coffeeCount: 2
+            },
+            {
+                id: 9,
+                name: "Hiếu Hướng",
+                amount: 10000,
+                avatar: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgyrYgKVvaxpBKvty2RvzRXUFfA8ifKZqkJUdjQ2c-LY7677GPvxiR2ESRvydaejqKpt6wvNP3kCRbd-W7aq_a6Uji2kbH5L5W6jqT70vEWXsISTb5aeNWFNTwbWdi5Y2lHoGwX2IXyl9Cd7WoTLpb2pW1gjPCKdNY-JS4pHChePkWb8OpMAbQm7lNu34k2/s736/Messenger_creation_D65EEC6D-DD3E-40AF-8D2F-051C66C40A3A.jpeg",
+                position: 9,
+                coffeeCount: 2
             }
         ];
         this.initialized = false;
@@ -222,7 +230,6 @@ class DonetSupporters {
                     'transform': 'translateY(-3px)',
                     'box-shadow': '0 8px 20px rgba(0, 0, 0, 0.12)',
                     'border-color': '#d2691e',
-                    'background': 'white'
                 });
                 $(this).find('.coffee-icon').addClass('animate-coffee');
             },
@@ -231,7 +238,6 @@ class DonetSupporters {
                     'transform': 'translateY(0)',
                     'box-shadow': 'none',
                     'border-color': 'transparent',
-                    'background': '#f8f9fa'
                 });
                 $(this).find('.coffee-icon').removeClass('animate-coffee');
             }
