@@ -94,6 +94,8 @@ function renderAppList() {
             
       let description = app.description === undefined ? 'N/A' : app.description;
 
+      const redirectLink = `redirect.html?url=${encodeURIComponent(app.downloadLink)}`;
+
       if (app.type === "Link") {
       appElement.innerHTML = `
         <div class="InfoApp">
@@ -107,7 +109,7 @@ function renderAppList() {
             </div>
           </div>
           <div class="Download">
-            <a href="${app.downloadLink}" target="_blank">
+            <a href="${redirectLink}" target="_blank">
               <button>
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </button>
@@ -134,7 +136,7 @@ function renderAppList() {
             </div>
           </div>
           <div class="Download">
-            <a href="${app.downloadLink}" target="_blank">
+            <a href="${redirectLink}" target="_blank">
               <button>
                 <i class="fa-solid fa-download"></i>
               </button>
@@ -170,7 +172,7 @@ function renderAppList() {
             </div>
           </div>
           <div class="Download">
-            <a href="${app.downloadLink}" target="_blank">
+            <a href="${redirectLink}" target="_blank">
               <button>
                 <i class="fa-solid fa-download"></i>
               </button>
