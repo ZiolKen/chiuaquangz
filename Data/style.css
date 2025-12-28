@@ -427,7 +427,7 @@ input[type="radio"]:checked+label {
     }
     
     .filter {
-      width: 665px;
+      width: 695px;
     }
     
     .radio-group {
@@ -436,6 +436,7 @@ input[type="radio"]:checked+label {
 }
 
         .supporters-container {
+            display: absolute;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             padding: 30px;
             background: rgba(255, 255, 255, 0.01);
