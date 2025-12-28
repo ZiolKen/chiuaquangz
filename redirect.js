@@ -1,4 +1,3 @@
-
   const params = new URLSearchParams(location.search);
   const redirectUrl = params.get("url");
 
@@ -6,6 +5,8 @@
   const loading = document.getElementById("loading");
   const errorBox = document.getElementById("error");
   const antibotBox = document.getElementById("antibot");
+  const redirectMsg = document.getElementById("redirect-msg");
+  const redirectText = document.getElementById("redirect-text");
   const btn = document.getElementById("continueBtn");
   const humanBtn = document.getElementById("humanBtn");
 
@@ -31,13 +32,22 @@
     errorBox.classList.remove("hidden");
   }
 
-  function doRedirect() {
-    try {
+  function showRedirectMessage() {
+    redirectText.innerHTML = `
+      Redirecting you to your link,
+      <a href="${decodeURIComponent(redirectUrl)}" rel="noreferrer">
+        click here
+      </a>
+      if it doesn't happen automatically
+    `;
+
+    loading.classList.add("hidden");
+    redirectMsg.classList.remove("hidden");
+
+    // Redirect sau khi hiện text 0.8s
+    setTimeout(() => {
       location.href = decodeURIComponent(redirectUrl);
-    } catch {
-      loading.classList.add("hidden");
-      showError("Lỗi", "Không thể chuyển hướng.");
-    }
+    }, 800);
   }
 
   btn.onclick = () => {
@@ -46,6 +56,7 @@
     content.remove();
     loading.classList.remove("hidden");
 
+    // Spin 3 giây giống F95
     setTimeout(() => {
       if (!redirectUrl) {
         loading.classList.add("hidden");
@@ -53,20 +64,19 @@
         return;
       }
 
-      // Antibot check
       if (isBot()) {
         loading.classList.add("hidden");
         antibotBox.classList.remove("hidden");
         return;
       }
 
-      doRedirect();
-    }, 700);
+      showRedirectMessage();
+    }, 3000);
   };
 
   humanBtn.onclick = () => {
     antibotBox.classList.add("hidden");
     loading.classList.remove("hidden");
 
-    setTimeout(doRedirect, 600);
+    setTimeout(showRedirectMessage, 3500);
   };
