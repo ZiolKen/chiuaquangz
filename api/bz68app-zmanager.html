@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta content="ie=edge" http-equiv="X-UA-Compatible">
+<title>App Manager Panel - CQz</title>
+<link rel="stylesheet" href="./manager.css">
+</head>
+
+<body>
+<h2>App Manager - CQz</h2>
+<div id="login" class="login" style="margin-top: 150px;">
+<h2>🔐 Login Panel</h2>
+<input style="padding: 10px;" id="token" placeholder="Access Token">
+<button style="padding: 10px;" onclick="login()">Login</button>
+</div>
+
+<div id="panel" class="panel">
+  <h2>➕ Thêm App/Link</h2>
+  <label>Tên App/Link</label>
+  <input id="appName" placeholder="...">
+  <label>Link Logo</label>
+  <input id="logo" placeholder="https://...">
+  <label>Phiên Bản</label>
+  <input id="version" placeholder="1.2.7">
+  <label>Dung Lượng</label>
+  <input id="size" placeholder="12,7MB">
+  <label>Link Tải/Link URL</label>
+  <input id="downloadLink" placeholder="https://...">
+  <label>Hệ Điều Hành</label>
+  <select id="os">
+    <option>iOS</option>
+    <option>Android</option>
+    <option>Windows</option>
+    <option>Linux</option>
+    <option>MacOS</option>
+  </select>
+  <label>Loại</label>
+  <select id="type">
+    <option>iPA</option>
+    <option>APK</option>
+    <option>Tweak</option>
+    <option>Link</option>
+    <option>Game</option>
+  </select>
+  <label>Mô Tả</label>
+  <textarea id="description" style="min-height: 90px;" placeholder="..."></textarea>
+<label id="detailDesc-label">Mô tả chi tiết</label>
+<textarea
+  id="detailDesc"
+  style="min-height: 210px;"
+  placeholder="..."
+></textarea>
+
+<label id="screenshots-label">Ảnh mô tả (mỗi dòng 1 link)</label>
+<textarea
+  id="screenshots"
+  style="min-height: 100px;"
+  placeholder="https://..."
+></textarea>
+  <button onclick="submitApp()">Thêm App</button>
+  <button onclick="repairUtfAndCleanup()">Sửa UTF + dọn App lỗi</button>
+  <footer style="padding: 5px;"><label>Có thể dùng <a href="https://catbox.moe" target="_blank">catbox.moe</a> hoặc <a href="https://imgbox.com" target="_blank">imgbox.com</a> để tự upload file ảnh lấy URL dùng cho Logo nếu không tìm thấy URL ảnh sẵn.</label></footer>
+</div>
+
+<div id="card" class="panel">
+<h2>🧰 Quản lý App/Link</h2>
+
+<label>Chọn mục</label>
+<select id="deleteSelect"></select>
+
+<button onclick="loadSelectedIntoForm()">Load vào form để sửa</button>
+<button onclick="updateSelectedFromForm()">Lưu sửa (từ form)</button>
+
+<button onclick="openRawEditor()">Mở edit raw</button>
+
+<div id="rawBox" style="display:none;">
+  <label>Raw JSON (phải là JSON hợp lệ)</label>
+  <textarea id="rawEditor" style="min-height:280px;" placeholder='{
+  "type": "...",
+  "name": "...",
+  "downloadLink": "..."
+}'></textarea>
+  <button onclick="saveRawEditor()">Lưu raw</button>
+  <button onclick="closeRawEditor()">Đóng raw</button>
+</div>
+
+<button onclick="deleteSelected()">Xoá mục đã chọn</button>
+<button onclick="refreshDeleteList()">Làm mới danh sách</button>
+<footer style="padding: 5px;"><label>Phải đợi một lúc rồi mới spam nhấn làm mới để cập nhật lại danh sách app được.</label></footer>
+</div>
+<footer style="margin: 10px; text-align: center;"><label>Coded with ❤ by <strong><a href="https://ziolken.pages.dev/" target="_blank" style="color: blue;">ZiolKen</a></strong></label></footer>
+
+<script src="./manager.js"></script>
+
+</body>
+
+</html>
