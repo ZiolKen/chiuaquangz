@@ -16,7 +16,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .logo {
@@ -55,11 +56,12 @@ body {
 
 .continue {
   width: 100%;
-  padding: 14px;
+  padding: 10px;
   font-size: 16px;
   font-weight: 600;
   background: #2b2e33;
   color: #efeff1;
+  border: 0px solid transparent;
   cursor: pointer;
   transition: all .2s ease;
 }
