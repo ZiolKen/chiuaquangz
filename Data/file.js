@@ -151,11 +151,11 @@ function renderAppList() {
         </div>
       `;
       
-  appElement.querySelector(".Info")
-    .addEventListener("click", () => openGameDetail(app));
-
-  appElement.querySelector(".More")
-    .addEventListener("click", () => openGameDetail(app));
+      appElement.querySelector(".Info")
+        .addEventListener("click", () => openGameDetail(app));
+    
+      appElement.querySelector(".More")
+        .addEventListener("click", () => openGameDetail(app));
       } else {
 
       let size = app.size === undefined ? 'N/A' : app.size;
@@ -186,6 +186,12 @@ function renderAppList() {
           <div class="Storage"><i class="fa-solid fa-database"></i> ${size}</div>
         </div>
       `;
+      
+      appElement.querySelector(".Info")
+        .addEventListener("click", () => openGameDetail(app));
+    
+      appElement.querySelector(".More")
+        .addEventListener("click", () => openGameDetail(app));
       }
       appListElement.appendChild(appElement);
     });
