@@ -1,90 +1,51 @@
 <!DOCTYPE html>
 <html lang="vi">
-    
+  
 <head>
   <meta charset="UTF-8">
-  <title>Đang chuyển hướng...</title>
+  <title>Chuyển hướng | Black Zero</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#0e0f11">
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: Arial, sans-serif;
-      color: #fff;
-    }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    .card {
-      background: #111;
-      border-radius: 12px;
-      padding: 25px;
-      max-width: 420px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 0 25px rgba(255,255,255,.1);
-    }
-
-    h2 {
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 14px;
-      opacity: 0.8;
-      word-break: break-all;
-    }
-
-    button {
-      margin-top: 20px;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #fff;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      width: 100%;
-      font-size: 16px;
-    }
-
-    button:hover {
-      opacity: 0.85;
-    }
-  </style>
-
+  <link rel="stylesheet" href="./redirect.css">
 </head>
 
 <body>
 
-  <div class="card">
-    <h2>⚠️ Chuyển hướng ra ngoài</h2>
-    <p id="linkText">Đang tải link...</p>
+  <div class="page">
 
-    <button onclick="goRedirect()">
-      Tiếp tục chuyển hướng
-    </button>
+    <div class="logo">
+      <span>BLACK</span><span class="red">ZERO</span>
+    </div>
+
+    <div class="card">
+      <h2>Bạn đang rời khỏi Black Zero</h2>
+
+      <p class="desc">
+        Chúng tôi không lưu trữ file.  
+        Hãy tự chịu trách nhiệm và quét virus với mọi thứ bạn tải xuống.
+      </p>
+
+      <button class="continue" onclick="goRedirect()">
+        Tiếp tục đến Link.
+      </button>
+
+      <a class="back" href="./">&lt; Quay lại Black Zero</a>
+    </div>
+
   </div>
 
   <script>
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(location.search);
     const redirectUrl = params.get("url");
-
-    const linkText = document.getElementById("linkText");
-
-    if (!redirectUrl) {
-      linkText.innerText = "Không tìm thấy link chuyển hướng!";
-    } else {
-      linkText.innerText = decodeURIComponent(redirectUrl);
-    }
 
     function goRedirect() {
       if (!redirectUrl) return;
-      window.location.href = decodeURIComponent(redirectUrl);
+      location.href = decodeURIComponent(redirectUrl);
     }
   </script>
 
