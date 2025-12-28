@@ -150,10 +150,10 @@ body {
   width: 48px;
   height: 48px;
   margin: 8px;
-  border: 6px solid #eee;
+  border: 6px solid #blue;
   border-radius: 50%;
   animation: lds-ring 1.2s infinite;
-  border-color: #eee transparent transparent transparent;
+  border-color: #blue transparent transparent transparent;
 }
 
 @keyframes lds-ring {
@@ -167,4 +167,22 @@ body {
 
 #error p {
   color: #aaa;
+}
+
+#antibot {
+  text-align: center;
+}
+
+#antibot button {
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: #2a2e33;
+  border: none;
+  border-radius: 6px;
+  color: #eee;
+  cursor: pointer;
+}
+
+#antibot button:hover {
+  background: #3d424a;
 }
