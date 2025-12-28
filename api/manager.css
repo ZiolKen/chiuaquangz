@@ -14,6 +14,19 @@ body {
     align-items: center;
 }
 
+.BG {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../Data/wallpaperflare.com_wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -10;
+}
+
 .panel {
     display: none;
     padding: 20px;
