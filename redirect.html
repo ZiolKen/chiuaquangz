@@ -21,23 +21,36 @@
       <img src="https://files.catbox.moe/2szbz9.png" alt="Black Zero">
     </div>
 
-    <div class="card">
+  <div class="card" id="card">
+  
+    <div id="card-content">
       <h2>Bạn đang rời khỏi Black Zero</h2>
-
+  
       <p class="desc">
         Chúng tôi không lưu trữ file và luôn nỗ lực đảm bảo các file đều an toàn, dù sao hãy cẩn thận và tự quét virus với mọi thứ bạn tải.
       </p>
-
+  
       <div class="actions">
-        <button class="continue" onclick="goRedirect()">
+        <button class="continue" id="continueBtn">
           <i class="fa-solid fa-link"></i> Tiếp tục chuyển hướng
         </button>
-    
+  
         <a class="back" href="./">
           &lt; Quay lại Black Zero
         </a>
       </div>
     </div>
+
+    <div id="loading" class="hidden">
+      <div class="lds-ring">
+        <div></div><div></div><div></div><div></div>
+      </div>
+      <p>Đang chuyển hướng…</p>
+    </div>
+
+    <div id="error" class="hidden"></div>
+  
+  </div>
 
   </div>
 
