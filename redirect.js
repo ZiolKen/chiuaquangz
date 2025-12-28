@@ -69,12 +69,12 @@
       }
 
       showRedirectMessage();
-    }, 2500);
+    }, 1500);
   };
 
   humanBtn.onclick = () => {
     antibotBox.classList.add("hidden");
     loading.classList.remove("hidden");
 
-    setTimeout(showRedirectMessage, 2500);
+    setTimeout(showRedirectMessage, 1500);
   };
