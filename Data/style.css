@@ -435,6 +435,348 @@ input[type="radio"]:checked+label {
     }
 }
 
+        .supporters-container {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(139, 69, 19, 0.15);
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ffcc99;
+        }
+
+        .supporters-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8b4513, #d2691e, #8b4513);
+        }
+
+        /* Header */
+        .container-header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .header-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #8b4513, #d2691e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 36px;
+            box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .container-header h3 {
+            color: #8b4513;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .container-header p {
+            color: #a0522d;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .coffee-price-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(139, 69, 19, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #8b4513;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .coffee-price-note i {
+            color: #d2691e;
+        }
+
+        /* Danh sách */
+        .supporters-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .supporter-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: white;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.08);
+        }
+
+        .supporter-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(139, 69, 19, 0.15);
+            border-color: #d2691e;
+            background: #fffaf0;
+        }
+
+        /* Vị trí */
+        .position {
+            min-width: 45px;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 18px;
+            margin-right: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .position-1 {
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            color: #8b6500;
+            border: 2px solid #ffd700;
+        }
+
+        .position-2 {
+            background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+            color: #505050;
+            border: 2px solid #c0c0c0;
+        }
+
+        .position-3 {
+            background: linear-gradient(135deg, #cd7f32, #a0522d);
+            color: white;
+            border: 2px solid #cd7f32;
+        }
+
+        .position-other {
+            background: linear-gradient(135deg, #f5deb3, #deb887);
+            color: #8b4513;
+            border: 2px solid #deb887;
+        }
+
+        /* Avatar */
+        .avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(139, 69, 19, 0.2);
+        }
+
+        /* Thông tin */
+        .supporter-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .supporter-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #8b4513;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .amount-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .amount-label {
+            font-size: 14px;
+            color: #a0522d;
+            font-weight: 500;
+        }
+
+        .amount {
+            font-weight: 800;
+            font-size: 20px;
+            color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .coffee-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px;
+            background: rgba(210, 105, 30, 0.1);
+            border-radius: 8px;
+            width: fit-content;
+        }
+
+        .coffee-icon {
+            color: #8b4513;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .coffee-icon.animate-coffee {
+            animation: coffeeSteam 1.5s ease-in-out;
+        }
+
+        @keyframes coffeeSteam {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .coffee-count {
+            font-size: 14px;
+            font-weight: 600;
+            color: #8b4513;
+        }
+
+        /* Nút ủng hộ */
+        .donate-btn-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .donate-btn {
+            background: linear-gradient(135deg, #8b4513, #d2691e);
+            color: white;
+            border: none;
+            padding: 20px 35px;
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            min-width: 250px;
+            box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.5);
+            background: linear-gradient(135deg, #a0522d, #8b4513);
+        }
+
+        .donate-btn:active {
+            transform: translateY(0);
+        }
+
+        .donate-btn i {
+            font-size: 22px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .supporters-container {
+                padding: 20px;
+                margin: 0 10px;
+            }
+            
+            .header-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+            
+            .container-header h3 {
+                font-size: 24px;
+            }
+            
+            .supporter-item {
+                padding: 16px;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .position {
+                margin-right: 0;
+                margin-bottom: 10px;
+                order: -1;
+            }
+            
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 10px;
+                order: -2;
+            }
+            
+            .supporter-info {
+                width: 100%;
+            }
+            
+            .amount-info, .coffee-info {
+                justify-content: center;
+            }
+            
+            .amount {
+                font-size: 18px;
+                padding: 5px 10px;
+            }
+            
+            .donate-btn {
+                padding: 18px 25px;
+                font-size: 18px;
+                width: 100%;
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .supporter-item {
+                flex-direction: column;
+            }
+            
+            .position, .avatar {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+
 .modal {
   display: none;
   position: fixed;
