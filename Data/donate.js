@@ -158,7 +158,7 @@ class DonetSupporters {
                         <i class="fas fa-mug-hot"></i>
                     </div>
                     <h3>Coffee Supporters</h3>
-                    <p>Những người đã mua cafe ủng hộ cho dự án năm 2024-2025</p>
+                    <p>Những người đã mua cafe ủng hộ cho dự án.</p>
                     <div class="coffee-price-note">
                         <i class="fas fa-info-circle"></i>
                         Mỗi cốc cafe = 5,000đ
