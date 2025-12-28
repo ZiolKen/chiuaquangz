@@ -22,8 +22,8 @@ body {
 
 .logo {
   font-size: 48px;
-  font-weight: 800;
-  margin-bottom: 25px;
+  font-weight: 850;
+  margin-bottom: 20px;
   letter-spacing: 2px;
 }
 
@@ -35,7 +35,7 @@ body {
   width: 100%;
   max-width: 460px;
   background: #25262a;
-  padding: 30px 28px;
+  padding: 30px;
   text-align: center;
   box-shadow: 0 0 40px rgba(0,0,0,.6);
 }
@@ -43,7 +43,7 @@ body {
 .card h2 {
   margin: 0 0 14px;
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 625;
 }
 
 .desc {
@@ -55,7 +55,6 @@ body {
 }
 
 .continue {
-  width: 100%;
   padding: 10px;
   font-size: 16px;
   font-weight: 600;
