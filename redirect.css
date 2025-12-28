@@ -42,7 +42,7 @@ body {
 
 .card h2 {
   margin: 0 0 14px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 450;
 }
 
@@ -58,6 +58,7 @@ body {
   padding: 10px;
   font-size: 17px;
   font-weight: 450;
+  border-radius: 5px;
   background: #2b2e33;
   color: #efeff1;
   border: 0px solid transparent;
