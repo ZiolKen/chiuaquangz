@@ -58,7 +58,7 @@
     setTimeout(() => {
       if (!redirectUrl) {
         loading.classList.add("hidden");
-        showError("Lỗi", "Link không hợp lệ.");
+        showError("Chuyển hướng lỗi", "Link không hợp lệ");
         return;
       }
 
