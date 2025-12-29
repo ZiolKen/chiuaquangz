@@ -27,8 +27,8 @@
   }
 
   const RATE_KEY = "bz_redirect_log";
-  const LIMIT = 3;
-  const WINDOW = 60 * 1000;
+  const LIMIT = 5;
+  const WINDOW = 90 * 1000;
 
   function logRedirect() {
     const now = Date.now();
