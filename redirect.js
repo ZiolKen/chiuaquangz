@@ -3,10 +3,7 @@ const TRUST_MIN = 30;
 const LIMIT = 5;
 const WINDOW = 90 * 1000;
 const REDIRECT_DELAY = 600;
-
-/* ========= PARAM ========= */
-const params = new URLSearchParams(location.search);
-const rawUrl = params.get("url");
+const SECRET = "bz68@encoder";
 
 /* ========= ELEMENTS ========= */
 const card = document.getElementById("card-content");
@@ -15,6 +12,8 @@ const antibot = document.getElementById("antibot");
 const errorBox = document.getElementById("error");
 const btn = document.getElementById("continueBtn");
 const humanBtn = document.getElementById("humanBtn");
+const redirectMsg = document.getElementById("redirect-msg");
+const redirectText = document.getElementById("redirect-text");
 
 /* ========= STORAGE ========= */
 const TRUST_KEY = "bz_trusted_until";
@@ -60,29 +59,30 @@ function isRateLimited(){
   return arr.filter(t => now - t < WINDOW).length >= LIMIT;
 }
 
-/* ========= URL SANITIZE ========= */
-function normalizeUrl(raw){
+/* ========= DECODE ========= */
+function xor(str, key){
+  return [...str].map((c,i)=>
+    String.fromCharCode(c.charCodeAt(0) ^ key.charCodeAt(i % key.length))
+  ).join("");
+}
+
+function decodePayload(hash){
   try{
-    const decoded = decodeURIComponent(raw || "").trim();
+    const raw = atob(hash.replace(/-/g,'+').replace(/_/g,'/'));
+    const json = JSON.parse(xor(raw, SECRET));
 
-    if (/^(javascript|data|vbscript):/i.test(decoded)) return null;
+    if (!json.u || !json.e) return null;
+    if (Date.now() > json.e) return "expired";
 
-    const u = new URL(decoded);
+    if (/^(javascript|data|vbscript):/i.test(json.u)) return null;
 
-    if (!["http:", "https:"].includes(u.protocol)) return null;
+    const u = new URL(json.u);
+    if (!["http:","https:"].includes(u.protocol)) return null;
 
     return u.href;
   }catch{
     return null;
   }
-}
-
-const safeUrl = normalizeUrl(rawUrl);
-
-/* ========= ERROR ========= */
-function showError(title, msg){
-  errorBox.innerHTML = `<h3>${title}</h3><p>${msg}</p>`;
-  errorBox.classList.remove("hidden");
 }
 
 /* ========= GOOGLEBOT SAFE ========= */
@@ -94,14 +94,36 @@ if (isGoogleBot){
   throw "Googlebot stop";
 }
 
+/* ========= GET URL ========= */
+const payload = location.hash.slice(1);
+const safeUrl = decodePayload(payload);
+
+/* ========= ERROR ========= */
+function showError(title,msg){
+  errorBox.innerHTML = `<h3>${title}</h3><p>${msg}</p>`;
+  errorBox.classList.remove("hidden");
+}
+
 /* ========= VALIDATE ========= */
 if (!safeUrl){
-  showError("Link không hợp lệ", "Không thể chuyển hướng tới liên kết này.");
-  throw "Invalid URL";
+  showError("Link không hợp lệ", "Liên kết không tồn tại hoặc đã hết hạn.");
+  throw "Invalid link";
+}
+
+if (safeUrl === "expired"){
+  showError("Link đã hết hạn", "Liên kết này đã quá thời gian cho phép.");
+  throw "Expired";
 }
 
 /* ========= REDIRECT ========= */
 function doRedirect(){
+  loading.classList.add("hidden");
+
+  if (redirectMsg){
+    redirectText.textContent = "Đang chuyển hướng…";
+    redirectMsg.classList.remove("hidden");
+  }
+
   setTimeout(()=>location.href = safeUrl, REDIRECT_DELAY);
 }
 
