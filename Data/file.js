@@ -1,3 +1,33 @@
+/* ========= REDIRECT ENCODE ========= */
+const REDIRECT_SECRET = "bz68@encoder";
+const EXPIRE_TIME = 24 * 60 * 60 * 1000;
+
+function xor(str, key){
+  return [...str].map((c,i)=>
+    String.fromCharCode(c.charCodeAt(0) ^ key.charCodeAt(i % key.length))
+  ).join("");
+}
+
+function encodeRedirectUrl(url){
+  try{
+    if (!/^https?:\/\//i.test(url)) return null;
+
+    const payload = JSON.stringify({
+      u: url,
+      e: Date.now() + EXPIRE_TIME
+    });
+
+    const encoded = btoa(xor(payload, REDIRECT_SECRET))
+      .replace(/\+/g,'-')
+      .replace(/\//g,'_')
+      .replace(/=+$/,'');
+
+    return encoded;
+  }catch{
+    return null;
+  }
+}
+
 window.onload = function () {
   // Initially hide the loading message
   const loadingMessage = document.getElementById("loading-message");
@@ -94,7 +124,8 @@ function renderAppList() {
             
       let description = app.description === undefined ? 'N/A' : app.description;
 
-      const redirectLink = `redirect.html?url=${encodeURIComponent(app.downloadLink)}`;
+      const encoded = encodeRedirectUrl(app.downloadLink);
+      const redirectLink = encoded ? `redirect.html#${encoded}` : "#";
 
       if (app.type === "Link") {
       appElement.innerHTML = `
