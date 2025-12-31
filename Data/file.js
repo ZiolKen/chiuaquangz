@@ -140,7 +140,7 @@ function renderAppList() {
             </div>
           </div>
           <div class="Download">
-            <a href="${redirectLink}" target="_blank">
+            <a href="${app.downloadLink}" target="_blank">
               <button>
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </button>
@@ -167,7 +167,7 @@ function renderAppList() {
             </div>
           </div>
           <div class="Download">
-            <a href="${redirectLink}" target="_blank">
+            <a href="${app.downloadLink}" target="_blank">
               <button>
                 <i class="fa-solid fa-download"></i>
               </button>
@@ -203,7 +203,7 @@ function renderAppList() {
             </div>
           </div>
           <div class="Download">
-            <a href="${redirectLink}" target="_blank">
+            <a href="${app.downloadLink}" target="_blank">
               <button>
                 <i class="fa-solid fa-download"></i>
               </button>
