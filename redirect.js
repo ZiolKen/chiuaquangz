@@ -1,11 +1,10 @@
-/* ========= CONFIG ========= */
+/*
 const TRUST_MIN = 30;
 const LIMIT = 5;
-const WINDOW = 90 * 1000;
+const WINDOW = 30 * 1000;
 const REDIRECT_DELAY = 600;
 const SECRET = "bz68@encoder";
 
-/* ========= ELEMENTS ========= */
 const card = document.getElementById("card-content");
 const loading = document.getElementById("loading");
 const antibot = document.getElementById("antibot");
@@ -15,20 +14,16 @@ const humanBtn = document.getElementById("humanBtn");
 const redirectMsg = document.getElementById("redirect-msg");
 const redirectText = document.getElementById("redirect-text");
 
-/* ========= STORAGE ========= */
 const TRUST_KEY = "bz_trusted_until";
 const RATE_KEY = "bz_redirect_log";
 
-/* ========= GOOGLEBOT ========= */
 const isGoogleBot = /Googlebot|AdsBot/i.test(navigator.userAgent);
 
-/* ========= INTERACTION ========= */
 let interacted = false;
 ["mousemove","touchstart","keydown","scroll"].forEach(e=>{
   addEventListener(e,()=>interacted=true,{once:true});
 });
 
-/* ========= BOT CHECK ========= */
 function isBot(){
   if (navigator.webdriver) return true;
   if (!navigator.languages || !navigator.languages.length) return true;
@@ -37,7 +32,6 @@ function isBot(){
   return false;
 }
 
-/* ========= TRUST ========= */
 function isTrusted(){
   return Date.now() < (localStorage.getItem(TRUST_KEY) || 0);
 }
@@ -45,7 +39,6 @@ function markTrusted(){
   localStorage.setItem(TRUST_KEY, Date.now() + TRUST_MIN * 60 * 1000);
 }
 
-/* ========= RATE LIMIT ========= */
 function logRedirect(){
   const now = Date.now();
   let arr = JSON.parse(localStorage.getItem(RATE_KEY) || "[]")
@@ -59,7 +52,6 @@ function isRateLimited(){
   return arr.filter(t => now - t < WINDOW).length >= LIMIT;
 }
 
-/* ========= DECODE ========= */
 function xor(str, key){
   return [...str].map((c,i)=>
     String.fromCharCode(c.charCodeAt(0) ^ key.charCodeAt(i % key.length))
@@ -85,24 +77,20 @@ function decodePayload(hash){
   }
 }
 
-/* ========= GOOGLEBOT SAFE ========= */
 if (isGoogleBot){
   card.remove();
   showError("404", "Not found");
   throw "GOOGLEBOT STOP! DUDE?";
 }
 
-/* ========= GET URL ========= */
 const payload = location.hash.slice(1);
 const safeUrl = decodePayload(payload);
 
-/* ========= ERROR ========= */
 function showError(title,msg){
   errorBox.innerHTML = `<h3>${title}</h3><p>${msg}</p>`;
   errorBox.classList.remove("hidden");
 }
 
-/* ========= VALIDATE ========= */
 if (!safeUrl){
   card.remove();
   showError("Link không hợp lệ", "Liên kết không tồn tại hoặc đã hết hạn");
@@ -116,7 +104,6 @@ if (safeUrl === "expired"){
   throw "Expired";
 }
 
-/* ========= REDIRECT ========= */
 function doRedirect(){
   loading.classList.add("hidden");
 
@@ -128,7 +115,6 @@ function doRedirect(){
   setTimeout(()=>location.href = safeUrl, REDIRECT_DELAY);
 }
 
-/* ========= EVENTS ========= */
 btn.onclick = ()=>{
   btn.disabled = true;
   card.remove();
@@ -159,3 +145,4 @@ humanBtn.onclick = ()=>{
     doRedirect();
   }, 1250);
 };
+*/
