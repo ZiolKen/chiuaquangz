@@ -1,8 +1,8 @@
 "use strict";
 
-const OWNER  = "ZiolKenn";
-const REPO   = "chiuaquangz";
-const PATH   = "app.js";
+const OWNER  = "chiuaquang";
+const REPO   = "apps";
+const PATH   = "apps.js";
 const BRANCH = "main";
 
 const $ = (id) => document.getElementById(id);
